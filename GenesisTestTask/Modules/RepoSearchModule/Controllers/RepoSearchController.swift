@@ -9,30 +9,27 @@
 import UIKit
 
 class RepoSearchController: UIViewController, ControllerType {
+  
+  //MARK: - Properties
+  
+  typealias ViewModel = RepoSearchControllerViewModel
+  var viewModel: RepoSearchControllerViewModel!
+  
+  //MARK: - Lifecycle
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
-    //MARK: - Properties
+    configure(with: viewModel)
+  }
+  
+  //MARK: - Functions
+  
+  func configure(with viewModel: RepoSearchControllerViewModel) {
     
-    typealias ViewModel = RepoSearchControllerViewModel
-    var viewModel: RepoSearchControllerViewModel!
-    
-    //MARK: - Lifecycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        configure(with: viewModel)
-    }
-    
-    //MARK: - Functions
-    
-    func configure(with viewModel: RepoSearchControllerViewModel) {
-        
-    }
-    
-    static func create(with viewModel: RepoSearchControllerViewModel) -> UIViewController {
-        let storyboard = UIStoryboard(name: "RepoSearchController", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "RepoSearchController") as! RepoSearchController
-        controller.viewModel = viewModel
-        return controller
-    }
+  }
+  
+  deinit {
+    print("\(self) dealloc")
+  }
 }

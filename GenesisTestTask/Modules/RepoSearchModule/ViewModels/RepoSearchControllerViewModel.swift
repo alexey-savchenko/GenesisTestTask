@@ -9,18 +9,23 @@
 import Foundation
 
 class RepoSearchControllerViewModel: ViewModelType {
-    
-    let input: Input
-    let output: Output
-    
-    struct Input {
-    }
-    struct Output {
-    }
-    
-    init() {
-        input = Input()
-        output = Output()
-    }
-    
+  
+  // MARK: - Properties
+  
+  let input: Input
+  let output: Output
+  
+  struct Input {
+  }
+  struct Output {
+  }
+  
+  // MARK: - Init and deinit
+  init() {
+    input = Input()
+    output = Output()
+  }
+  deinit {
+    print("\(self) dealloc")
+  }
 }
