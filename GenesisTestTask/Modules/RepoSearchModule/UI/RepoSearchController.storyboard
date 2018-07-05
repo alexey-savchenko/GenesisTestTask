@@ -17,13 +17,48 @@
                     <view key="view" contentMode="scaleToFill" id="fc2-HG-0Ds">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uhr-qD-VZ7">
+                                <rect key="frame" x="0.0" y="66" width="375" height="601"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="l4i-A2-se8">
+                                <rect key="frame" x="8" y="28" width="359" height="30"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search GitHub repos" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Ag-DS-sie">
+                                        <rect key="frame" x="0.0" y="0.0" width="297" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPy-tA-PWR">
+                                        <rect key="frame" x="313" y="0.0" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="l4i-A2-se8" firstAttribute="leading" secondItem="r8b-DF-F5o" secondAttribute="leading" constant="8" id="6zW-B4-7z7"/>
+                            <constraint firstItem="uhr-qD-VZ7" firstAttribute="top" secondItem="l4i-A2-se8" secondAttribute="bottom" constant="8" id="7UF-tC-ePT"/>
+                            <constraint firstItem="uhr-qD-VZ7" firstAttribute="trailing" secondItem="r8b-DF-F5o" secondAttribute="trailing" id="8sW-tz-qup"/>
+                            <constraint firstItem="l4i-A2-se8" firstAttribute="top" secondItem="r8b-DF-F5o" secondAttribute="top" constant="8" id="UVH-mj-fiR"/>
+                            <constraint firstItem="r8b-DF-F5o" firstAttribute="trailing" secondItem="l4i-A2-se8" secondAttribute="trailing" constant="8" id="ZAS-4D-KhZ"/>
+                            <constraint firstItem="uhr-qD-VZ7" firstAttribute="bottom" secondItem="r8b-DF-F5o" secondAttribute="bottom" id="ZEr-GY-vSf"/>
+                            <constraint firstItem="uhr-qD-VZ7" firstAttribute="leading" secondItem="r8b-DF-F5o" secondAttribute="leading" id="tfh-h3-bZI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="r8b-DF-F5o"/>
                     </view>
+                    <connections>
+                        <outlet property="repoListTableView" destination="uhr-qD-VZ7" id="Xie-iC-37A"/>
+                        <outlet property="searchTextField" destination="5Ag-DS-sie" id="7yI-L2-plt"/>
+                        <outlet property="submitButton" destination="BPy-tA-PWR" id="9ck-69-Hn3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mNZ-Fd-Biv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-41" y="183"/>
+            <point key="canvasLocation" x="-42.399999999999999" y="182.15892053973016"/>
         </scene>
     </scenes>
 </document>

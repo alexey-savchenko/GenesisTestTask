@@ -24,7 +24,7 @@ protocol ControllerType: class {
 
 extension ControllerType {
   static func create(with viewModel: ViewModel) -> UIViewController {
-    let typeString = "\(type(of: self))".components(separatedBy: ".").first!
+    let typeString = String(describing: self)
     let storyboard = UIStoryboard(name: typeString, bundle: nil)
     let controller = storyboard.instantiateViewController(withIdentifier: typeString) as! Self
     controller.viewModel = viewModel

@@ -11,10 +11,15 @@ import RxSwift
 
 class RepoSearchControllerViewModel: ViewModelType {
   
-  // MARK: - Properties
+  // MARK: - Public Properties
   
   let input: Input
   let output: Output
+	
+	// MARK: - Private Properties
+	
+	private let repoFetchService: RepoFetchServiceProtocol
+	private let disposeBag = DisposeBag()
 	
 	// Inputs
 	private let searchQuerySubject = PublishSubject<String>()
@@ -29,13 +34,26 @@ class RepoSearchControllerViewModel: ViewModelType {
   }
 	
   struct Output {
+		let repos: Observable<[RepoListTableViewCellViewModel]>
   }
   
   // MARK: - Init and deinit
-	init(_ repoFetchService: RepoFetchServiceProtocol = RepoFetchService()) {
+	init(_ repoFetchService: RepoFetchServiceProtocol = MockFetchService()) {
+		
+		self.repoFetchService = repoFetchService
+		
 		input = Input(searchQuery: searchQuerySubject.asObserver(),
 									cancelQuery: cancelSearchSubject.asObserver())
-    output = Output()
+		output = Output(repos: self.repoFetchService.searchRepos(using: "Test").map({ (infos) in
+			infos.map(RepoListTableViewCellViewModel.init)
+		}))
+		
+		self.repoFetchService
+			.searchRepos(using: "Test")
+			.subscribe(onNext: { (repos) in
+				print(repos)
+			})
+			.disposed(by: disposeBag)
   }
   deinit {
     print("\(self) dealloc")

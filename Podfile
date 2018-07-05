@@ -9,5 +9,6 @@ target 'GenesisTestTask' do
 	pod 'RxAlamofire'
 	pod 'RxSwift'
 	pod 'RxCocoa'
+	pod 'SDWebImage'
 	
 end

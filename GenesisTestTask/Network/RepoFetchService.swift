@@ -16,14 +16,24 @@ protocol RepoFetchServiceProtocol {
 }
 
 class RepoFetchService: RepoFetchServiceProtocol {
-
+	
+	var currentRequest: DataRequest?
+	
 	func cancelQuery() {
-		
+		currentRequest?.cancel()
 	}
 	
 	func searchRepos(using query: String) -> Observable<[RepoInfo]> {
-
-		return Observable.never()
+		return Observable.create { [unowned self] observer in
+			
+			
+			
+			return Disposables.create { [unowned self] in self.currentRequest?.cancel() }
+		}
+	}
+	
+	deinit {
+		print("\(self) dealloc")
 	}
 }
 
