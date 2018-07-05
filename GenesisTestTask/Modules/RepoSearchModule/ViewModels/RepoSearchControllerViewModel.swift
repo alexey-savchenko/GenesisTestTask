@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 class RepoSearchControllerViewModel: ViewModelType {
   
@@ -14,15 +15,26 @@ class RepoSearchControllerViewModel: ViewModelType {
   
   let input: Input
   let output: Output
-  
+	
+	// Inputs
+	private let searchQuerySubject = PublishSubject<String>()
+	private let cancelSearchSubject = PublishSubject<Void>()
+	
+	// Outputs
+	
+	
   struct Input {
+		let searchQuery: AnyObserver<String>
+		let cancelQuery: AnyObserver<Void>
   }
+	
   struct Output {
   }
   
   // MARK: - Init and deinit
-  init() {
-    input = Input()
+	init(_ repoFetchService: RepoFetchServiceProtocol = RepoFetchService()) {
+		input = Input(searchQuery: searchQuerySubject.asObserver(),
+									cancelQuery: cancelSearchSubject.asObserver())
     output = Output()
   }
   deinit {

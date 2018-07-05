@@ -6,5 +6,8 @@ target 'GenesisTestTask' do
   use_frameworks!
 
   pod 'Alamofire'
+	pod 'RxAlamofire'
+	pod 'RxSwift'
+	pod 'RxCocoa'
 	
 end
