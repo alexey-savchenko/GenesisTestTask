@@ -286,7 +286,6 @@
 			isa = PBXGroup;
 			children = (
 				02DB5B8B20EE95FB00DBEB5A /* RepoSearchControllerViewModel.swift */,
-				02DB5BAE20EEAE9A00DBEB5A /* RepoListTableViewCellViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -348,6 +347,7 @@
 		02DB5BAB20EEABDF00DBEB5A /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				02DB5BAE20EEAE9A00DBEB5A /* RepoListTableViewCellViewModel.swift */,
 				02DB5BA720EEABDB00DBEB5A /* RepoListTableViewCell.swift */,
 				02DB5BA820EEABDB00DBEB5A /* RepoListTableViewCell.xib */,
 			);
@@ -663,7 +663,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9AGBN4H5KS;
 				INFOPLIST_FILE = GenesisTestTask/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = svch.GenesisTestTask1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -679,7 +682,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9AGBN4H5KS;
 				INFOPLIST_FILE = GenesisTestTask/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = svch.GenesisTestTask1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
