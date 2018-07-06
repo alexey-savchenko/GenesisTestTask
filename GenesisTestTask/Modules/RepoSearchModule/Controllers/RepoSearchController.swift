@@ -10,7 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class RepoSearchController: UIViewController, ControllerType {
+class RepoSearchController: UIViewController, ControllerType, RepoWebPresenter {
   
   //MARK: - Properties
   

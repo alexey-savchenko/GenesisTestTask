@@ -10,13 +10,20 @@ import Foundation
 import RxSwift
 
 class SearchHistoryControllerViewModel: ViewModelType {
+	
+	// MARK: - Public properties
+	
 	let input: Input
 	let output: Output
 	
-	private let historyItemSelectedSubject = PublishSubject<SearchHistoryItemTableViewCellViewModel>()
-	private let dissmisSubject = PublishSubject<Void>()
+	// MARK: - Private properties
+	
 	private weak var navigationDelegate: SearchHistoryModuleNavigationDelegate?
 	private let disposeBag = DisposeBag()
+	
+	// Inputs
+	private let historyItemSelectedSubject = PublishSubject<SearchHistoryItemTableViewCellViewModel>()
+	private let dissmisSubject = PublishSubject<Void>()
 	
 	struct Input {
 		let historyItemSelected: AnyObserver<SearchHistoryItemTableViewCellViewModel>
@@ -26,6 +33,8 @@ class SearchHistoryControllerViewModel: ViewModelType {
 	struct Output {
 		let searchHistory: Observable<[SearchHistoryItemTableViewCellViewModel]>
 	}
+	
+	// MARK: - Init and deinit
 	
 	init(_ historyInfoProvider: SearchHistoryInfoProviderProtocol = CoreDataStack.shared,
 			 navigationDelegate: SearchHistoryModuleNavigationDelegate) {

@@ -10,16 +10,20 @@ import Foundation
 import RxSwift
 
 class SearchHistoryItemControllerViewModel: ViewModelType {
+	
+	// MARK: - Public properties
 	let input: Input
 	let output: Output
 	
 	struct Input {
 	}
+	
 	struct Output {
 		let title: String
 		let repositoryCellViewModels: Observable<[RepoListTableViewCellViewModel]>
 	}
 	
+	// MARK: - Init and deinit
 	init(_ searchHistoryItem: SearchHistoryItem) {
 		input = Input()
 		
@@ -33,5 +37,9 @@ class SearchHistoryItemControllerViewModel: ViewModelType {
 		
 		output = Output(title: searchHistoryItem.searchQuery ?? "",
 										repositoryCellViewModels: Observable.just(repositoryCellViewModels))
+	}
+	
+	deinit {
+		print("\(self) dealloc")
 	}
 }

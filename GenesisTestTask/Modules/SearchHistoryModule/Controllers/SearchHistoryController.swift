@@ -11,13 +11,19 @@ import RxSwift
 import RxCocoa
 
 class SearchHistoryController: UIViewController, ControllerType {
+	
+	// MARK: - Properties
 	typealias ViewModel = SearchHistoryControllerViewModel
 	
 	var viewModel: SearchHistoryControllerViewModel!
+	private let disposeBag = DisposeBag()
+	
+	// MARK: - UI
 	
 	@IBOutlet weak var historyItemsTableView: UITableView!
 	private let dissmisBarItem = UIBarButtonItem(title: "Dissmis", style: .plain, target: nil, action: nil)
-	private let disposeBag = DisposeBag()
+	
+	// MARK: - Lifecycle
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -25,6 +31,8 @@ class SearchHistoryController: UIViewController, ControllerType {
 		configureUI()
 		configure(with: viewModel)
 	}
+	
+	// MARK: - Functions
 	
 	func configure(with viewModel: SearchHistoryControllerViewModel) {
 		dissmisBarItem.rx.tap
@@ -49,7 +57,7 @@ class SearchHistoryController: UIViewController, ControllerType {
 					cell.fill(with: element)
 				}
 				
-		}.disposed(by: disposeBag)
+			}.disposed(by: disposeBag)
 	}
 	
 	private func configureTableView() {

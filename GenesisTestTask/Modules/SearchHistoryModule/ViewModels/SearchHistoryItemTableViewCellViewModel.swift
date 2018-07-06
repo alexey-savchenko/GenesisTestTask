@@ -9,19 +9,26 @@
 import Foundation
 
 class SearchHistoryItemTableViewCellViewModel: ViewModelType {
+	
+	// MARK: - Public properties
+	
 	let input: Input
 	let output: Output
+	
+	// MARK: - Private properties
 	
 	private let historyItem: SearchHistoryItem
 	
 	struct Input {
 	}
+	
 	struct Output {
 		let historyItem: SearchHistoryItem
 		let searchQueryString: String
 		let searchDateString: String
 	}
 	
+	// MARK: - Init and deinit
 	init(_ historyItem: SearchHistoryItem) {
 		self.historyItem = historyItem
 		input = Input()
@@ -33,5 +40,9 @@ class SearchHistoryItemTableViewCellViewModel: ViewModelType {
 		output = Output(historyItem: historyItem,
 										searchQueryString: historyItem.searchQuery ?? "",
 										searchDateString: searchDateString)
+	}
+	
+	deinit {
+		print("\(self) dealloc")
 	}
 }

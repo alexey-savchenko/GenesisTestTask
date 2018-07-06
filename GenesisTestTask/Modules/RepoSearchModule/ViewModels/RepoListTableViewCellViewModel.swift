@@ -9,7 +9,9 @@
 import Foundation
 
 class RepoListTableViewCellViewModel: ViewModelType {
+	
 	// MARK: - Public Properties
+	
 	let input: Input
 	let output: Output
 	
@@ -23,6 +25,8 @@ class RepoListTableViewCellViewModel: ViewModelType {
 		let repoLanguageString: String
 		let repoURL: URL
 	}
+	
+	// MARK: - Init and deinit
 	
 	init(_ repoInfo: RepoInfo) {
 		input = Input()
@@ -38,5 +42,8 @@ class RepoListTableViewCellViewModel: ViewModelType {
 										ownerUserpicURL: ownerUserpicURL,
 										repoLanguageString: repoLanguageString,
 										repoURL: repoURL)
+	}
+	deinit {
+		print("\(self) dealloc")
 	}
 }

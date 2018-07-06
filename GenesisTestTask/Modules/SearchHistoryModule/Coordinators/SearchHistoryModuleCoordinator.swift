@@ -9,6 +9,9 @@
 import UIKit
 
 class SearchHistoryModuleCoordinator: CoordinatorType {
+	
+	// MARK: - Properties
+	
 	var childCoordinators = [CoordinatorType]()
 	
 	var rootController: UIViewController {
@@ -18,12 +21,16 @@ class SearchHistoryModuleCoordinator: CoordinatorType {
 	private let navigationController = UINavigationController()
 	private weak var coordinatorDelegate: SearchHistoryModuleCoordinatorDelegate?
 	
+	// MARK: - Init and deinit
+	
 	init(_ coordinatorDelegate: SearchHistoryModuleCoordinatorDelegate) {
 		self.coordinatorDelegate = coordinatorDelegate
 	}
 	deinit {
 		print("\(self) dealloc")
 	}
+	
+	// MARK: - Functions
 	
 	func start() {
 		do {

@@ -10,12 +10,19 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class SearchHistoryItemController: UIViewController, ControllerType {
+class SearchHistoryItemController: UIViewController, ControllerType, RepoWebPresenter {
+	
+	// MARK: - Properties
+	
 	typealias ViewModel = SearchHistoryItemControllerViewModel
 	var viewModel: SearchHistoryItemControllerViewModel!
+	private let disposeBag = DisposeBag()
+	
+	// MARK: - UI
 	
 	@IBOutlet weak var searchResultsTableView: UITableView!
-	private let disposeBag = DisposeBag()
+	
+	// MARK: - Lifecycle
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -23,6 +30,8 @@ class SearchHistoryItemController: UIViewController, ControllerType {
 		configureTableView()
 		configure(with: viewModel)
 	}
+	
+	// MARK: - Functions
 	
 	func configure(with viewModel: SearchHistoryItemControllerViewModel) {
 		navigationItem.title = viewModel.output.title
