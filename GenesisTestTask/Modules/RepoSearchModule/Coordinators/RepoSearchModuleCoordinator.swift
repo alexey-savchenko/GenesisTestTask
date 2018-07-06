@@ -33,10 +33,15 @@ class RepoSearchModuleCoordinator: CoordinatorType {
   // MARK: - Functions
   
   func start() {
-    let repoSearchControllerViewModel = RepoSearchControllerViewModel()
-    let repoSearchController = RepoSearchController.create(with: repoSearchControllerViewModel)
-    navigationController.setViewControllers([repoSearchController], animated: false)
-    window.rootViewController = rootController
-    window.makeKeyAndVisible()
-  }
+		do {
+			let repoSearchControllerViewModel = RepoSearchControllerViewModel()
+			let repoSearchController = try RepoSearchController.create(with: repoSearchControllerViewModel)
+			navigationController.setViewControllers([repoSearchController], animated: false)
+			window.rootViewController = rootController
+			window.makeKeyAndVisible()
+		} catch {
+			// Handle error somehow
+			print(error)
+		}
+	}
 }

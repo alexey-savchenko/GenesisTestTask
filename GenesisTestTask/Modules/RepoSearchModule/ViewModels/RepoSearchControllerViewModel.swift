@@ -26,7 +26,8 @@ class RepoSearchControllerViewModel: ViewModelType {
 	private let cancelSearchSubject = PublishSubject<Void>()
 	
 	// Outputs
-	
+	private let isQueryingSubject = PublishSubject<Bool>()
+	private let reposSubject = PublishSubject<[RepoListTableViewCellViewModel]>()
 	
   struct Input {
 		let searchQuery: AnyObserver<String>
@@ -35,6 +36,7 @@ class RepoSearchControllerViewModel: ViewModelType {
 	
   struct Output {
 		let repos: Observable<[RepoListTableViewCellViewModel]>
+		let isQuerying: Observable<Bool>
   }
   
   // MARK: - Init and deinit
@@ -44,16 +46,9 @@ class RepoSearchControllerViewModel: ViewModelType {
 		
 		input = Input(searchQuery: searchQuerySubject.asObserver(),
 									cancelQuery: cancelSearchSubject.asObserver())
-		output = Output(repos: self.repoFetchService.searchRepos(using: "Test").map({ (infos) in
-			infos.map(RepoListTableViewCellViewModel.init)
-		}))
 		
-		self.repoFetchService
-			.searchRepos(using: "Test")
-			.subscribe(onNext: { (repos) in
-				print(repos)
-			})
-			.disposed(by: disposeBag)
+		output = Output(repos: reposSubject.asObservable(),
+										isQuerying: isQueryingSubject.asObservable())
   }
   deinit {
     print("\(self) dealloc")

@@ -19,15 +19,18 @@ protocol ControllerType: class {
   ///
   /// - Parameter viewModel: View model object
   /// - Returns: View controller of concrete type
-  static func create(with viewModel: ViewModel) -> UIViewController
+  static func create(with viewModel: ViewModel) throws -> UIViewController
 }
 
 extension ControllerType {
-  static func create(with viewModel: ViewModel) -> UIViewController {
-    let typeString = String(describing: self)
-    let storyboard = UIStoryboard(name: typeString, bundle: nil)
-    let controller = storyboard.instantiateViewController(withIdentifier: typeString) as! Self
-    controller.viewModel = viewModel
-    return controller as! UIViewController
-  }
+  static func create(with viewModel: ViewModel) throws -> UIViewController {
+    let typeName = String(describing: self)
+    let storyboard = UIStoryboard(name: typeName, bundle: nil)
+		if let controller = storyboard.instantiateViewController(withIdentifier: typeName) as? Self {
+			controller.viewModel = viewModel
+			return controller as! UIViewController
+		} else {
+			throw "Cannot instantiate ViewController instance \(typeName) from storyboard with name \(typeName)!"
+		}
+	}
 }

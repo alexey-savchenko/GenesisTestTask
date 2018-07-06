@@ -9,8 +9,8 @@
 import UIKit
 
 extension UITableView {
-	func registerReuseableCell<C: ReusableCellType>(_ cell: C.Type) {
-		let name = String(describing: cell)
-		register(UINib(nibName: name, bundle: nil), forCellReuseIdentifier: name)
+	func registerReuseableCell<C: ReusableCellType>(_ cellType: C.Type) {
+		let typeName = String(describing: cellType)
+		register(UINib(nibName: typeName, bundle: nil), forCellReuseIdentifier: typeName)
 	}
 }
