@@ -30,6 +30,8 @@ class SearchHistoryControllerViewModel: ViewModelType {
 	init(_ historyInfoProvider: SearchHistoryInfoProviderProtocol = CoreDataStack.shared,
 			 navigationDelegate: SearchHistoryModuleNavigationDelegate) {
 		
+		self.navigationDelegate = navigationDelegate
+		
 		input = Input(historyItemSelected: historyItemSelectedSubject.asObserver(),
 									dissmis: dissmisSubject.asObserver())
 		
@@ -37,7 +39,7 @@ class SearchHistoryControllerViewModel: ViewModelType {
 			historyItems.map(SearchHistoryItemTableViewCellViewModel.init)
 		}))
 		
-		historyItemSelectedSubject
+		historyItemSelectedSubject.debug()
 			.subscribe(onNext: { [unowned self] (historyItem) in
 				self.navigationDelegate?.showSearchResultsFor(historyItem.output.historyItem)
 			})
@@ -48,5 +50,9 @@ class SearchHistoryControllerViewModel: ViewModelType {
 				self.navigationDelegate?.dissmisFlow()
 			})
 			.disposed(by: disposeBag)
+	}
+	
+	deinit {
+		print("\(self) dealloc")
 	}
 }

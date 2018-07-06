@@ -21,6 +21,9 @@
 		0297ADD620EF64B800A47E5F /* SearchHistoryItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297ADD420EF64B800A47E5F /* SearchHistoryItemTableViewCell.swift */; };
 		0297ADD720EF64B800A47E5F /* SearchHistoryItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0297ADD520EF64B800A47E5F /* SearchHistoryItemTableViewCell.xib */; };
 		0297ADDA20EF64EA00A47E5F /* SearchHistoryItemTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297ADD920EF64EA00A47E5F /* SearchHistoryItemTableViewCellViewModel.swift */; };
+		0297ADDC20EF6CF800A47E5F /* SearchHistoryItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297ADDB20EF6CF800A47E5F /* SearchHistoryItemController.swift */; };
+		0297ADDE20EF6D2B00A47E5F /* SearchHistoryItemControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297ADDD20EF6D2B00A47E5F /* SearchHistoryItemControllerViewModel.swift */; };
+		0297ADE020EF6D8400A47E5F /* SearchHistoryItemController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0297ADDF20EF6D8400A47E5F /* SearchHistoryItemController.storyboard */; };
 		02DB5B8520EE94E600DBEB5A /* ControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB5B8420EE94E600DBEB5A /* ControllerType.swift */; };
 		02DB5B8720EE950B00DBEB5A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB5B8620EE950B00DBEB5A /* ViewModelType.swift */; };
 		02DB5B8920EE953500DBEB5A /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB5B8820EE953500DBEB5A /* CoordinatorType.swift */; };
@@ -60,6 +63,9 @@
 		0297ADD420EF64B800A47E5F /* SearchHistoryItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryItemTableViewCell.swift; sourceTree = "<group>"; };
 		0297ADD520EF64B800A47E5F /* SearchHistoryItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryItemTableViewCell.xib; sourceTree = "<group>"; };
 		0297ADD920EF64EA00A47E5F /* SearchHistoryItemTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryItemTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		0297ADDB20EF6CF800A47E5F /* SearchHistoryItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryItemController.swift; sourceTree = "<group>"; };
+		0297ADDD20EF6D2B00A47E5F /* SearchHistoryItemControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryItemControllerViewModel.swift; sourceTree = "<group>"; };
+		0297ADDF20EF6D8400A47E5F /* SearchHistoryItemController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchHistoryItemController.storyboard; sourceTree = "<group>"; };
 		02DB5B8420EE94E600DBEB5A /* ControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerType.swift; sourceTree = "<group>"; };
 		02DB5B8620EE950B00DBEB5A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		02DB5B8820EE953500DBEB5A /* CoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
@@ -156,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				0297ADC120EF5AEF00A47E5F /* SearchHistoryController.swift */,
+				0297ADDB20EF6CF800A47E5F /* SearchHistoryItemController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -165,6 +172,7 @@
 			children = (
 				0297ADC520EF5B5000A47E5F /* SearchHistoryControllerViewModel.swift */,
 				0297ADD920EF64EA00A47E5F /* SearchHistoryItemTableViewCellViewModel.swift */,
+				0297ADDD20EF6D2B00A47E5F /* SearchHistoryItemControllerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -182,6 +190,7 @@
 			children = (
 				0297ADCB20EF5C7700A47E5F /* SearchHistoryController.storyboard */,
 				0297ADD820EF64BB00A47E5F /* Cells */,
+				0297ADDF20EF6D8400A47E5F /* SearchHistoryItemController.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -412,6 +421,7 @@
 				0297ADD720EF64B800A47E5F /* SearchHistoryItemTableViewCell.xib in Resources */,
 				0244B71220EE910B0001CA88 /* LaunchScreen.storyboard in Resources */,
 				0244B70F20EE910B0001CA88 /* Assets.xcassets in Resources */,
+				0297ADE020EF6D8400A47E5F /* SearchHistoryItemController.storyboard in Resources */,
 				02DB5BAA20EEABDB00DBEB5A /* RepoListTableViewCell.xib in Resources */,
 				0297ADCC20EF5C7700A47E5F /* SearchHistoryController.storyboard in Resources */,
 			);
@@ -471,7 +481,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0297ADDE20EF6D2B00A47E5F /* SearchHistoryItemControllerViewModel.swift in Sources */,
 				02DB5BAF20EEAE9A00DBEB5A /* RepoListTableViewCellViewModel.swift in Sources */,
+				0297ADDC20EF6CF800A47E5F /* SearchHistoryItemController.swift in Sources */,
 				0297ADD620EF64B800A47E5F /* SearchHistoryItemTableViewCell.swift in Sources */,
 				0297ADC920EF5C0200A47E5F /* SearchHistoryModuleCoordinator.swift in Sources */,
 				0297ADD020EF605D00A47E5F /* AppCoordinator.swift in Sources */,

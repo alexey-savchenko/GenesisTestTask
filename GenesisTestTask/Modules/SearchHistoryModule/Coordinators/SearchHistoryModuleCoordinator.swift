@@ -48,6 +48,13 @@ extension SearchHistoryModuleCoordinator: SearchHistoryModuleNavigationDelegate 
 	}
 	
 	func showSearchResultsFor(_ historyItem: SearchHistoryItem) {
-		
+		do {
+			let searchHistoryItemControllerViewModel = SearchHistoryItemControllerViewModel(historyItem)
+			let searchHistoryItemController = try SearchHistoryItemController.create(with: searchHistoryItemControllerViewModel)
+			navigationController.pushViewController(searchHistoryItemController, animated: true)
+		} catch {
+			// Handle error
+			print(error.localizedDescription)
+		}
 	}
 }
