@@ -18,6 +18,15 @@ protocol RepoFetchServiceProtocol {
 
 class RepoFetchService: RepoFetchServiceProtocol {
 	
+	init(_ historySaveService: SearchHistoryInfoStoreProtocol = CoreDataStack.shared) {
+		self.historySaveService = historySaveService
+	}
+	
+	deinit {
+		print("\(self) dealloc")
+	}
+	
+	private let historySaveService: SearchHistoryInfoStoreProtocol
 	private let isQueryingSubject = PublishSubject<Bool>()
 	
 	var isQuerying: Observable<Bool> {
@@ -32,11 +41,7 @@ class RepoFetchService: RepoFetchServiceProtocol {
 	
 	func searchRepos(using query: String) -> Observable<[RepoInfo]> {
 		return Observable.create { [unowned self] observer in
-//			self.isQueryingSubject.onNext(true)
-//			let stubbedResponseData = JSONStubs.stub2.data(using: String.Encoding.utf8)
-//			let stubbedResponse = try! JSONDecoder().decode(SearchResponse.self, from: stubbedResponseData!)
-//			self.isQueryingSubject.onNext(false)
-//			observer.onNext(stubbedResponse.items)
+
 			self.isQueryingSubject.onNext(true)
 			self.currentRequest = Alamofire
 				.request(SearchReposAPIAction(query: query, page: 1))
@@ -45,6 +50,7 @@ class RepoFetchService: RepoFetchServiceProtocol {
 					case .success:
 						if let data = dataResponse.data,
 							let searchResponse = try? JSONDecoder().decode(SearchResponse.self, from: data) {
+							self.historySaveService.saveSearch(query, reposInfo: searchResponse.items)
 							self.isQueryingSubject.onNext(false)
 							observer.onNext(searchResponse.items)
 						} else {
@@ -62,10 +68,6 @@ class RepoFetchService: RepoFetchServiceProtocol {
 			return Disposables.create { [unowned self] in self.currentRequest?.cancel() }
 		}
 	}
-	
-	deinit {
-		print("\(self) dealloc")
-	}
 }
 
 class MockFetchService: RepoFetchServiceProtocol {
@@ -77,7 +79,6 @@ class MockFetchService: RepoFetchServiceProtocol {
 	}
 	
 	func cancelQuery() {
-		
 	}
 	
 	func searchRepos(using query: String) -> Observable<[RepoInfo]> {

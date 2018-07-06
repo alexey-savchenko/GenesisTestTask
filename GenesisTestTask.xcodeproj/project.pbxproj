@@ -11,6 +11,8 @@
 		0244B70A20EE910A0001CA88 /* RepoSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0244B70920EE910A0001CA88 /* RepoSearchController.swift */; };
 		0244B70F20EE910B0001CA88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0244B70E20EE910B0001CA88 /* Assets.xcassets */; };
 		0244B71220EE910B0001CA88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0244B71020EE910B0001CA88 /* LaunchScreen.storyboard */; };
+		0297ADBC20EF557500A47E5F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297ADBB20EF557500A47E5F /* CoreDataStack.swift */; };
+		0297ADC020EF559000A47E5F /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0297ADBE20EF559000A47E5F /* CoreDataModel.xcdatamodeld */; };
 		02DB5B8520EE94E600DBEB5A /* ControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB5B8420EE94E600DBEB5A /* ControllerType.swift */; };
 		02DB5B8720EE950B00DBEB5A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB5B8620EE950B00DBEB5A /* ViewModelType.swift */; };
 		02DB5B8920EE953500DBEB5A /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB5B8820EE953500DBEB5A /* CoordinatorType.swift */; };
@@ -40,6 +42,8 @@
 		0244B70E20EE910B0001CA88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0244B71120EE910B0001CA88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0244B71320EE910B0001CA88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0297ADBB20EF557500A47E5F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		0297ADBF20EF559000A47E5F /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		02DB5B8420EE94E600DBEB5A /* ControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerType.swift; sourceTree = "<group>"; };
 		02DB5B8620EE950B00DBEB5A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		02DB5B8820EE953500DBEB5A /* CoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
@@ -106,8 +110,18 @@
 				0244B70E20EE910B0001CA88 /* Assets.xcassets */,
 				0244B71020EE910B0001CA88 /* LaunchScreen.storyboard */,
 				0244B71320EE910B0001CA88 /* Info.plist */,
+				0297ADBD20EF557B00A47E5F /* CoreData */,
 			);
 			path = GenesisTestTask;
+			sourceTree = "<group>";
+		};
+		0297ADBD20EF557B00A47E5F /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				0297ADBB20EF557500A47E5F /* CoreDataStack.swift */,
+				0297ADBE20EF559000A47E5F /* CoreDataModel.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		02DB5B8A20EE955C00DBEB5A /* Protocols */ = {
@@ -364,6 +378,7 @@
 				02DB5B8720EE950B00DBEB5A /* ViewModelType.swift in Sources */,
 				02DB5B9E20EEA0F500DBEB5A /* RepoInfo.swift in Sources */,
 				02DB5BA920EEABDB00DBEB5A /* RepoListTableViewCell.swift in Sources */,
+				0297ADC020EF559000A47E5F /* CoreDataModel.xcdatamodeld in Sources */,
 				02DB5B8520EE94E600DBEB5A /* ControllerType.swift in Sources */,
 				02DB5BB520EF41AA00DBEB5A /* UIViewController+Extensions.swift in Sources */,
 				02DB5B9820EE9F9600DBEB5A /* RepoFetchService.swift in Sources */,
@@ -374,6 +389,7 @@
 				0244B70820EE910A0001CA88 /* AppDelegate.swift in Sources */,
 				02DB5B8E20EE974800DBEB5A /* RepoSearchModuleCoordinator.swift in Sources */,
 				02DB5BA620EEA45700DBEB5A /* SearchReposAPIAction.swift in Sources */,
+				0297ADBC20EF557500A47E5F /* CoreDataStack.swift in Sources */,
 				02DB5B8C20EE95FB00DBEB5A /* RepoSearchControllerViewModel.swift in Sources */,
 				02DB5B8920EE953500DBEB5A /* CoordinatorType.swift in Sources */,
 				02DB5BB320EF307900DBEB5A /* Errors.swift in Sources */,
@@ -569,6 +585,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0297ADBE20EF559000A47E5F /* CoreDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0297ADBF20EF559000A47E5F /* CoreDataModel.xcdatamodel */,
+			);
+			currentVersion = 0297ADBF20EF559000A47E5F /* CoreDataModel.xcdatamodel */;
+			path = CoreDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0244B6FC20EE91090001CA88 /* Project object */;
 }
