@@ -20,12 +20,6 @@ struct SearchResponse: Codable {
 	}
 }
 
-enum DefaultBranch: String, Codable {
-	case ghPages = "gh-pages"
-	case master = "master"
-	case tutorial = "tutorial"
-}
-
 struct License: Codable {
 	let key, name: String
 	let spdxID, url: String?

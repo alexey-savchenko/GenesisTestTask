@@ -10,11 +10,11 @@ import Foundation
 import RxSwift
 
 class RepoSearchControllerViewModel: ViewModelType {
-  
-  // MARK: - Public Properties
-  
-  let input: Input
-  let output: Output
+	
+	// MARK: - Public Properties
+	
+	let input: Input
+	let output: Output
 	
 	// MARK: - Private Properties
 	
@@ -24,33 +24,71 @@ class RepoSearchControllerViewModel: ViewModelType {
 	// Inputs
 	private let searchQuerySubject = PublishSubject<String>()
 	private let cancelSearchSubject = PublishSubject<Void>()
+	private let startSearchSubject = PublishSubject<Void>()
 	
 	// Outputs
-	private let isQueryingSubject = PublishSubject<Bool>()
+	private let isQueryingSubject = BehaviorSubject<Bool>(value: false)
 	private let reposSubject = PublishSubject<[RepoListTableViewCellViewModel]>()
+	private let errorsSubject = PublishSubject<Error>()
 	
-  struct Input {
+	struct Input {
 		let searchQuery: AnyObserver<String>
-		let cancelQuery: AnyObserver<Void>
-  }
+		let startSearch: AnyObserver<Void>
+		let cancelSearch: AnyObserver<Void>
+	}
 	
-  struct Output {
+	struct Output {
 		let repos: Observable<[RepoListTableViewCellViewModel]>
+		let errors: Observable<Error>
 		let isQuerying: Observable<Bool>
-  }
-  
-  // MARK: - Init and deinit
-	init(_ repoFetchService: RepoFetchServiceProtocol = MockFetchService()) {
+	}
+	
+	// MARK: - Init and deinit
+	init(_ repoFetchService: RepoFetchServiceProtocol = RepoFetchService()) {
 		
 		self.repoFetchService = repoFetchService
 		
 		input = Input(searchQuery: searchQuerySubject.asObserver(),
-									cancelQuery: cancelSearchSubject.asObserver())
+									startSearch: startSearchSubject.asObserver(),
+									cancelSearch: cancelSearchSubject.asObserver())
 		
 		output = Output(repos: reposSubject.asObservable(),
+										errors: errorsSubject.asObservable(),
 										isQuerying: isQueryingSubject.asObservable())
-  }
-  deinit {
-    print("\(self) dealloc")
-  }
+		
+		bindViewModelToService()
+	}
+	
+	private func bindViewModelToService() {
+		repoFetchService.isQuerying.debug()
+			.subscribe(isQueryingSubject)
+			.disposed(by: disposeBag)
+		
+		cancelSearchSubject
+			.subscribe(onNext: { [unowned self] _ in
+				self.repoFetchService.cancelQuery()
+			})
+			.disposed(by: disposeBag)
+		
+		startSearchSubject
+			.withLatestFrom(searchQuerySubject).debug()
+			.distinctUntilChanged()
+			.flatMapLatest{ [unowned self] (query) in
+				self.repoFetchService.searchRepos(using: query).materialize()
+			}.subscribe(onNext: { [unowned self] event in
+				switch event {
+				case .next(let value):
+					let cellViewModels = value.map(RepoListTableViewCellViewModel.init)
+					self.reposSubject.onNext(cellViewModels)
+				case .error(let error):
+					self.errorsSubject.onNext(error)
+				default:
+					break
+				}
+			}).disposed(by: disposeBag)
+	}
+	
+	deinit {
+		print("\(self) dealloc")
+	}
 }

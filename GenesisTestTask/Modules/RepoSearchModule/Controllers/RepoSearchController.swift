@@ -1,4 +1,4 @@
-//
+	//
 //  ViewController.swift
 //  GenesisTestTask
 //
@@ -17,18 +17,26 @@ class RepoSearchController: UIViewController, ControllerType {
   typealias ViewModel = RepoSearchControllerViewModel
   var viewModel: RepoSearchControllerViewModel!
 	private let disposeBag = DisposeBag()
+	private lazy var isValidForm: Observable<Bool> = {
+		return searchTextField.rx.text.asObservable().map { !$0!.isEmpty }
+	}()
 	
 	//MARK: - UI
 	
-	@IBOutlet weak var repoListTableView: UITableView!
-	@IBOutlet weak var searchTextField: UITextField!
-	@IBOutlet weak var submitButton: UIButton!
+	@IBOutlet private weak var repoListTableView: UITableView!
+	@IBOutlet private weak var searchTextField: UITextField!
+	@IBOutlet private weak var submitButton: UIButton!
+	private var spinner: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+	private lazy var spinnerBarItem: UIBarButtonItem = {
+		return UIBarButtonItem(customView: spinner)
+	}()
 	
 	//MARK: - Lifecycle
   
   override func viewDidLoad() {
     super.viewDidLoad()
 		
+		configureUI()
 		configureTableView()
     configure(with: viewModel)
   }
@@ -45,6 +53,51 @@ class RepoSearchController: UIViewController, ControllerType {
 					}
 		}.disposed(by: disposeBag)
 		
+		viewModel.output.isQuerying
+			.subscribe(spinner.rx.isAnimating)
+			.disposed(by: disposeBag)
+		
+		viewModel.output.isQuerying
+			.subscribe(onNext: { [unowned self] (value) in
+				switch value {
+				case true:
+					self.submitButton.setTitle("Cancel", for: .normal)
+				case false:
+					self.submitButton.setTitle("Search", for: .normal)
+				}
+			})
+			.disposed(by: disposeBag)
+		
+		viewModel.output.errors
+			.subscribe(onNext: { [unowned self] error in
+				self.presentError(error)
+			})
+			.disposed(by: disposeBag)
+		
+		searchTextField.rx.text.asObservable()
+			.map { $0! }
+			.subscribe(viewModel.input.searchQuery)
+			.disposed(by: disposeBag)
+		
+		submitButton.rx.tap.asObservable()
+			.debounce(0.2, scheduler: MainScheduler.instance)
+			.withLatestFrom(viewModel.output.isQuerying)
+			.filter { $0 == true }
+			.map { _ in () }
+			.subscribe(viewModel.input.cancelSearch)
+			.disposed(by: disposeBag)
+		
+		submitButton.rx.tap.asObservable()
+			.debounce(0.2, scheduler: MainScheduler.instance)
+			.withLatestFrom(viewModel.output.isQuerying)
+			.filter { $0 == false }
+			.do(onNext: { [unowned self] _ in
+				self.searchTextField.resignFirstResponder()
+			})
+			.map { _ in () }
+			.subscribe(viewModel.input.startSearch)
+			.disposed(by: disposeBag)
+		
 		repoListTableView.rx
 			.modelSelected(RepoListTableViewCellViewModel.self)
 			.do(onNext: { [unowned self] _ in
@@ -60,8 +113,16 @@ class RepoSearchController: UIViewController, ControllerType {
 	
 	private func configureTableView() {
 		repoListTableView.estimatedRowHeight = 100
+		repoListTableView.keyboardDismissMode = .interactive
 		repoListTableView.rowHeight = UITableViewAutomaticDimension
 		repoListTableView.registerReuseableCell(RepoListTableViewCell.self)
+	}
+	
+	private func configureUI() {
+		spinner.hidesWhenStopped = true
+		navigationItem.title = "GitHub search"
+		navigationItem.leftBarButtonItems = [spinnerBarItem]
+		isValidForm.subscribe(submitButton.rx.isEnabled).disposed(by: disposeBag)
 	}
   
   deinit {

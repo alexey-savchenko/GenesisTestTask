@@ -29,7 +29,7 @@ struct RepoInfo: Codable {
 	let gitURL, sshURL, cloneURL, svnURL: String
 	let homepage: String?
 	let size, stargazersCount, watchersCount: Int
-	let language: String
+	let language: String?
 	let hasIssues, hasProjects, hasDownloads, hasWiki: Bool
 	let hasPages: Bool
 	let forksCount: Int
@@ -38,7 +38,7 @@ struct RepoInfo: Codable {
 	let openIssuesCount: Int
 	let license: License?
 	let forks, openIssues, watchers: Int
-	let defaultBranch: DefaultBranch
+	let defaultBranch: String
 	let score: Double
 	
 	enum CodingKeys: String, CodingKey {

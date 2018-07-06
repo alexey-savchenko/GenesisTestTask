@@ -29,6 +29,7 @@
 		02DB5BAF20EEAE9A00DBEB5A /* RepoListTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB5BAE20EEAE9A00DBEB5A /* RepoListTableViewCellViewModel.swift */; };
 		02DB5BB120EEB24D00DBEB5A /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB5BB020EEB24D00DBEB5A /* UITableView+Extensions.swift */; };
 		02DB5BB320EF307900DBEB5A /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB5BB220EF307900DBEB5A /* Errors.swift */; };
+		02DB5BB520EF41AA00DBEB5A /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB5BB420EF41AA00DBEB5A /* UIViewController+Extensions.swift */; };
 		484373931E46204EDD704AEC /* Pods_GenesisTestTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5710C8E1403B7E11AB8DD108 /* Pods_GenesisTestTask.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		02DB5BAE20EEAE9A00DBEB5A /* RepoListTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoListTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		02DB5BB020EEB24D00DBEB5A /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		02DB5BB220EF307900DBEB5A /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		02DB5BB420EF41AA00DBEB5A /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		0C608F4F44AC6EDBD2AD596B /* Pods-GenesisTestTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GenesisTestTask.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GenesisTestTask/Pods-GenesisTestTask.debug.xcconfig"; sourceTree = "<group>"; };
 		5710C8E1403B7E11AB8DD108 /* Pods_GenesisTestTask.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GenesisTestTask.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFAC0B25528C0A73C3D721E1 /* Pods-GenesisTestTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GenesisTestTask.release.xcconfig"; path = "Pods/Target Support Files/Pods-GenesisTestTask/Pods-GenesisTestTask.release.xcconfig"; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				02DB5B9F20EEA17500DBEB5A /* JSONStubs.swift */,
 				02DB5BB020EEB24D00DBEB5A /* UITableView+Extensions.swift */,
 				02DB5BB220EF307900DBEB5A /* Errors.swift */,
+				02DB5BB420EF41AA00DBEB5A /* UIViewController+Extensions.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -362,6 +365,7 @@
 				02DB5B9E20EEA0F500DBEB5A /* RepoInfo.swift in Sources */,
 				02DB5BA920EEABDB00DBEB5A /* RepoListTableViewCell.swift in Sources */,
 				02DB5B8520EE94E600DBEB5A /* ControllerType.swift in Sources */,
+				02DB5BB520EF41AA00DBEB5A /* UIViewController+Extensions.swift in Sources */,
 				02DB5B9820EE9F9600DBEB5A /* RepoFetchService.swift in Sources */,
 				02DB5BAD20EEAE2300DBEB5A /* ReuseableCellType.swift in Sources */,
 				02DB5BB120EEB24D00DBEB5A /* UITableView+Extensions.swift in Sources */,
@@ -511,13 +515,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N35W696BYS;
+				DEVELOPMENT_TEAM = 9AGBN4H5KS;
 				INFOPLIST_FILE = GenesisTestTask/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = svch.GenesisTestTask;
+				PRODUCT_BUNDLE_IDENTIFIER = svch.GenesisTestTask1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -530,13 +534,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = N35W696BYS;
+				DEVELOPMENT_TEAM = 9AGBN4H5KS;
 				INFOPLIST_FILE = GenesisTestTask/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = svch.GenesisTestTask;
+				PRODUCT_BUNDLE_IDENTIFIER = svch.GenesisTestTask1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

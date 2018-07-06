@@ -56,6 +56,3 @@ struct SearchReposAPIAction: APIAction {
 		case updated = "updated"
 	}
 }
-
-let s = SearchReposAPIAction(query: "",
-														 page: 2)

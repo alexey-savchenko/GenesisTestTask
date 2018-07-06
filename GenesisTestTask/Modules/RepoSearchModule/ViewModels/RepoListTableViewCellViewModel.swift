@@ -30,7 +30,7 @@ class RepoListTableViewCellViewModel: ViewModelType {
 		let repoNameString = repoInfo.fullName
 		let starCountString = "Stars: \(repoInfo.stargazersCount)"
 		let ownerUserpicURL = URL(string: repoInfo.owner.avatarURL)!
-		let repoLanguageString = "Language: \(repoInfo.language)"
+		let repoLanguageString = "Language: \(repoInfo.language ?? "-")"
 		let repoURL = URL(string: repoInfo.url)!
 		
 		output = Output(repoNameString: repoNameString,
