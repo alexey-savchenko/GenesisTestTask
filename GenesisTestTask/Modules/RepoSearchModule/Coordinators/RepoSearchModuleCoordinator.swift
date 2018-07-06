@@ -9,25 +9,25 @@
 import UIKit
 
 class RepoSearchModuleCoordinator: CoordinatorType {
-  
-  // MARK: - Properties
-  
-  var childCoordinators = [CoordinatorType]()
-  
-  var rootController: UIViewController {
-    return navigationController
-  }
-  
-  private let navigationController = UINavigationController()
+	
+	// MARK: - Properties
+	
+	var childCoordinators = [CoordinatorType]()
+	
+	var rootController: UIViewController {
+		return navigationController
+	}
+	
+	private let navigationController = UINavigationController()
 	private weak var coordinatorDelegate: RepoSearchModuleCoordinatorDelegate?
 	
 	init(_ coordinatorDelegate: RepoSearchModuleCoordinatorDelegate) {
 		self.coordinatorDelegate = coordinatorDelegate
 	}
 	
-  // MARK: - Functions
-  
-  func start() {
+	// MARK: - Functions
+	
+	func start() {
 		do {
 			let repoSearchControllerViewModel = RepoSearchControllerViewModel(navigationDelegate: self)
 			let repoSearchController = try RepoSearchController.create(with: repoSearchControllerViewModel)
