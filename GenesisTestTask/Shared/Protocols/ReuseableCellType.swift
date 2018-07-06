@@ -11,7 +11,7 @@ import Foundation
 protocol ReusableCellType: class {
 	associatedtype CellViewModel: ViewModelType
 	static var reuseIdentifier: String { get }
-	func fill(with model: CellViewModel)
+	func fill(with cellViewModel: CellViewModel)
 }
 
 extension ReusableCellType {

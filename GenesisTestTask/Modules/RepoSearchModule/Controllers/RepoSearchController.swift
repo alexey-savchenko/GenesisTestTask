@@ -30,6 +30,7 @@ class RepoSearchController: UIViewController, ControllerType {
 	private lazy var spinnerBarItem: UIBarButtonItem = {
 		return UIBarButtonItem(customView: spinner)
 	}()
+	private let historyBarItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.bookmarks, target: nil, action: nil)
 	
 	//MARK: - Lifecycle
   
@@ -37,7 +38,6 @@ class RepoSearchController: UIViewController, ControllerType {
     super.viewDidLoad()
 		
 		configureUI()
-		configureTableView()
     configure(with: viewModel)
   }
   
@@ -109,6 +109,10 @@ class RepoSearchController: UIViewController, ControllerType {
 				print(repo.output.repoURL)
 			})
 			.disposed(by: disposeBag)
+		
+		historyBarItem.rx.tap.asObservable()
+			.subscribe(viewModel.input.showSearchHistory)
+			.disposed(by: disposeBag)
   }
 	
 	private func configureTableView() {
@@ -119,9 +123,11 @@ class RepoSearchController: UIViewController, ControllerType {
 	}
 	
 	private func configureUI() {
+		configureTableView()
 		spinner.hidesWhenStopped = true
 		navigationItem.title = "GitHub search"
 		navigationItem.leftBarButtonItems = [spinnerBarItem]
+		navigationItem.rightBarButtonItems = [historyBarItem]
 		isValidForm.subscribe(submitButton.rx.isEnabled).disposed(by: disposeBag)
 	}
   

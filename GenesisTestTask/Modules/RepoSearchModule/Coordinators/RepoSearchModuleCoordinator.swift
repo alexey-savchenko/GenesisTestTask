@@ -19,29 +19,32 @@ class RepoSearchModuleCoordinator: CoordinatorType {
   }
   
   private let navigationController = UINavigationController()
-  private let window: UIWindow
-  
-  // MARK: - Init and deinit
-  
-  init(_ window: UIWindow) {
-    self.window = window
-  }
-  deinit {
-    print("\(self) dealloc")
-  }
-  
+	private weak var coordinatorDelegate: RepoSearchModuleCoordinatorDelegate?
+	
+	init(_ coordinatorDelegate: RepoSearchModuleCoordinatorDelegate) {
+		self.coordinatorDelegate = coordinatorDelegate
+	}
+	
   // MARK: - Functions
   
   func start() {
 		do {
-			let repoSearchControllerViewModel = RepoSearchControllerViewModel()
+			let repoSearchControllerViewModel = RepoSearchControllerViewModel(navigationDelegate: self)
 			let repoSearchController = try RepoSearchController.create(with: repoSearchControllerViewModel)
 			navigationController.setViewControllers([repoSearchController], animated: false)
-			window.rootViewController = rootController
-			window.makeKeyAndVisible()
 		} catch {
 			// Handle error somehow
 			print(error)
 		}
+	}
+}
+
+protocol RepoSearchModuleNavigationDelegate: class {
+	func showSearchHistory()
+}
+
+extension RepoSearchModuleCoordinator: RepoSearchModuleNavigationDelegate {
+	func showSearchHistory() {
+		coordinatorDelegate?.showSearchHistory()
 	}
 }

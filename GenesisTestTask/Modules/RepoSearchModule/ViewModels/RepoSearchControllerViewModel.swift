@@ -20,11 +20,13 @@ class RepoSearchControllerViewModel: ViewModelType {
 	
 	private let repoFetchService: RepoFetchServiceProtocol
 	private let disposeBag = DisposeBag()
+	private weak var navigationDelegate: RepoSearchModuleNavigationDelegate?
 	
 	// Inputs
 	private let searchQuerySubject = PublishSubject<String>()
 	private let cancelSearchSubject = PublishSubject<Void>()
 	private let startSearchSubject = PublishSubject<Void>()
+	private let showHistorySubject = PublishSubject<Void>()
 	
 	// Outputs
 	private let isQueryingSubject = BehaviorSubject<Bool>(value: false)
@@ -35,6 +37,7 @@ class RepoSearchControllerViewModel: ViewModelType {
 		let searchQuery: AnyObserver<String>
 		let startSearch: AnyObserver<Void>
 		let cancelSearch: AnyObserver<Void>
+		let showSearchHistory: AnyObserver<Void>
 	}
 	
 	struct Output {
@@ -44,13 +47,16 @@ class RepoSearchControllerViewModel: ViewModelType {
 	}
 	
 	// MARK: - Init and deinit
-	init(_ repoFetchService: RepoFetchServiceProtocol = RepoFetchService()) {
+	init(_ repoFetchService: RepoFetchServiceProtocol = RepoFetchService(),
+			 navigationDelegate: RepoSearchModuleNavigationDelegate) {
 		
 		self.repoFetchService = repoFetchService
+		self.navigationDelegate = navigationDelegate
 		
 		input = Input(searchQuery: searchQuerySubject.asObserver(),
 									startSearch: startSearchSubject.asObserver(),
-									cancelSearch: cancelSearchSubject.asObserver())
+									cancelSearch: cancelSearchSubject.asObserver(),
+									showSearchHistory: showHistorySubject.asObserver())
 		
 		output = Output(repos: reposSubject.asObservable(),
 										errors: errorsSubject.asObservable(),
@@ -86,6 +92,12 @@ class RepoSearchControllerViewModel: ViewModelType {
 					break
 				}
 			}).disposed(by: disposeBag)
+		
+		showHistorySubject
+			.subscribe(onNext: { [unowned self] (_) in
+				self.navigationDelegate?.showSearchHistory()
+			})
+			.disposed(by: disposeBag)
 	}
 	
 	deinit {

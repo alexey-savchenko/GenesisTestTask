@@ -25,10 +25,10 @@ class RepoListTableViewCell: UITableViewCell, ReusableCellType {
 		ownerUserpicImageView.clipsToBounds = true
 	}
 	
-	func fill(with model: RepoListTableViewCellViewModel) {
-		ownerUserpicImageView.sd_setImage(with: model.output.ownerUserpicURL)
-		repoNameLabel.text = model.output.repoNameString
-		starsLabel.text = model.output.starsCountString
-		languageLabel.text = model.output.repoLanguageString
+	func fill(with cellViewModel: RepoListTableViewCellViewModel) {
+		ownerUserpicImageView.sd_setImage(with: cellViewModel.output.ownerUserpicURL)
+		repoNameLabel.text = cellViewModel.output.repoNameString
+		starsLabel.text = cellViewModel.output.starsCountString
+		languageLabel.text = cellViewModel.output.repoLanguageString
 	}
 }

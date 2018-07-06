@@ -13,6 +13,14 @@
 		0244B71220EE910B0001CA88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0244B71020EE910B0001CA88 /* LaunchScreen.storyboard */; };
 		0297ADBC20EF557500A47E5F /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297ADBB20EF557500A47E5F /* CoreDataStack.swift */; };
 		0297ADC020EF559000A47E5F /* CoreDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0297ADBE20EF559000A47E5F /* CoreDataModel.xcdatamodeld */; };
+		0297ADC220EF5AEF00A47E5F /* SearchHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297ADC120EF5AEF00A47E5F /* SearchHistoryController.swift */; };
+		0297ADC620EF5B5000A47E5F /* SearchHistoryControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297ADC520EF5B5000A47E5F /* SearchHistoryControllerViewModel.swift */; };
+		0297ADC920EF5C0200A47E5F /* SearchHistoryModuleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297ADC820EF5C0200A47E5F /* SearchHistoryModuleCoordinator.swift */; };
+		0297ADCC20EF5C7700A47E5F /* SearchHistoryController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0297ADCB20EF5C7700A47E5F /* SearchHistoryController.storyboard */; };
+		0297ADD020EF605D00A47E5F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297ADCF20EF605D00A47E5F /* AppCoordinator.swift */; };
+		0297ADD620EF64B800A47E5F /* SearchHistoryItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297ADD420EF64B800A47E5F /* SearchHistoryItemTableViewCell.swift */; };
+		0297ADD720EF64B800A47E5F /* SearchHistoryItemTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0297ADD520EF64B800A47E5F /* SearchHistoryItemTableViewCell.xib */; };
+		0297ADDA20EF64EA00A47E5F /* SearchHistoryItemTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297ADD920EF64EA00A47E5F /* SearchHistoryItemTableViewCellViewModel.swift */; };
 		02DB5B8520EE94E600DBEB5A /* ControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB5B8420EE94E600DBEB5A /* ControllerType.swift */; };
 		02DB5B8720EE950B00DBEB5A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB5B8620EE950B00DBEB5A /* ViewModelType.swift */; };
 		02DB5B8920EE953500DBEB5A /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB5B8820EE953500DBEB5A /* CoordinatorType.swift */; };
@@ -44,6 +52,14 @@
 		0244B71320EE910B0001CA88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0297ADBB20EF557500A47E5F /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		0297ADBF20EF559000A47E5F /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
+		0297ADC120EF5AEF00A47E5F /* SearchHistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryController.swift; sourceTree = "<group>"; };
+		0297ADC520EF5B5000A47E5F /* SearchHistoryControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryControllerViewModel.swift; sourceTree = "<group>"; };
+		0297ADC820EF5C0200A47E5F /* SearchHistoryModuleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryModuleCoordinator.swift; sourceTree = "<group>"; };
+		0297ADCB20EF5C7700A47E5F /* SearchHistoryController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchHistoryController.storyboard; sourceTree = "<group>"; };
+		0297ADCF20EF605D00A47E5F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		0297ADD420EF64B800A47E5F /* SearchHistoryItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryItemTableViewCell.swift; sourceTree = "<group>"; };
+		0297ADD520EF64B800A47E5F /* SearchHistoryItemTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchHistoryItemTableViewCell.xib; sourceTree = "<group>"; };
+		0297ADD920EF64EA00A47E5F /* SearchHistoryItemTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryItemTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		02DB5B8420EE94E600DBEB5A /* ControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerType.swift; sourceTree = "<group>"; };
 		02DB5B8620EE950B00DBEB5A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		02DB5B8820EE953500DBEB5A /* CoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
@@ -102,15 +118,16 @@
 			isa = PBXGroup;
 			children = (
 				0244B70720EE910A0001CA88 /* AppDelegate.swift */,
+				0297ADD120EF60FC00A47E5F /* AppCoordinator */,
 				02DB5B9620EE9A4500DBEB5A /* Modules */,
-				02DB5B8A20EE955C00DBEB5A /* Protocols */,
+				0297ADD220EF62C200A47E5F /* Shared */,
+				0297ADBD20EF557B00A47E5F /* CoreData */,
 				02DB5B9920EE9FE100DBEB5A /* Network */,
 				02DB5B9C20EEA0C200DBEB5A /* Models */,
 				02DB5BA120EEA1BB00DBEB5A /* Utility */,
 				0244B70E20EE910B0001CA88 /* Assets.xcassets */,
 				0244B71020EE910B0001CA88 /* LaunchScreen.storyboard */,
 				0244B71320EE910B0001CA88 /* Info.plist */,
-				0297ADBD20EF557B00A47E5F /* CoreData */,
 			);
 			path = GenesisTestTask;
 			sourceTree = "<group>";
@@ -122,6 +139,85 @@
 				0297ADBE20EF559000A47E5F /* CoreDataModel.xcdatamodeld */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		0297ADC320EF5AFB00A47E5F /* SearchHistoryModule */ = {
+			isa = PBXGroup;
+			children = (
+				0297ADC420EF5B0700A47E5F /* Controllers */,
+				0297ADC720EF5B5500A47E5F /* ViewModels */,
+				0297ADCA20EF5C0700A47E5F /* Coordinators */,
+				0297ADCD20EF5C9900A47E5F /* UI */,
+			);
+			path = SearchHistoryModule;
+			sourceTree = "<group>";
+		};
+		0297ADC420EF5B0700A47E5F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0297ADC120EF5AEF00A47E5F /* SearchHistoryController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0297ADC720EF5B5500A47E5F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				0297ADC520EF5B5000A47E5F /* SearchHistoryControllerViewModel.swift */,
+				0297ADD920EF64EA00A47E5F /* SearchHistoryItemTableViewCellViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0297ADCA20EF5C0700A47E5F /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				0297ADC820EF5C0200A47E5F /* SearchHistoryModuleCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		0297ADCD20EF5C9900A47E5F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0297ADCB20EF5C7700A47E5F /* SearchHistoryController.storyboard */,
+				0297ADD820EF64BB00A47E5F /* Cells */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		0297ADD120EF60FC00A47E5F /* AppCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				0297ADCF20EF605D00A47E5F /* AppCoordinator.swift */,
+			);
+			path = AppCoordinator;
+			sourceTree = "<group>";
+		};
+		0297ADD220EF62C200A47E5F /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0297ADD320EF62E500A47E5F /* UI */,
+				02DB5B8A20EE955C00DBEB5A /* Protocols */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		0297ADD320EF62E500A47E5F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				02DB5BAB20EEABDF00DBEB5A /* Cells */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		0297ADD820EF64BB00A47E5F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0297ADD420EF64B800A47E5F /* SearchHistoryItemTableViewCell.swift */,
+				0297ADD520EF64B800A47E5F /* SearchHistoryItemTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		02DB5B8A20EE955C00DBEB5A /* Protocols */ = {
@@ -175,7 +271,6 @@
 			isa = PBXGroup;
 			children = (
 				02DB5B9320EE98C200DBEB5A /* RepoSearchController.storyboard */,
-				02DB5BAB20EEABDF00DBEB5A /* Cells */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -184,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				02DB5B8F20EE97E400DBEB5A /* RepoSearchModule */,
+				0297ADC320EF5AFB00A47E5F /* SearchHistoryModule */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -313,9 +409,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				02DB5B9420EE98C200DBEB5A /* RepoSearchController.storyboard in Resources */,
+				0297ADD720EF64B800A47E5F /* SearchHistoryItemTableViewCell.xib in Resources */,
 				0244B71220EE910B0001CA88 /* LaunchScreen.storyboard in Resources */,
 				0244B70F20EE910B0001CA88 /* Assets.xcassets in Resources */,
 				02DB5BAA20EEABDB00DBEB5A /* RepoListTableViewCell.xib in Resources */,
+				0297ADCC20EF5C7700A47E5F /* SearchHistoryController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +472,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				02DB5BAF20EEAE9A00DBEB5A /* RepoListTableViewCellViewModel.swift in Sources */,
+				0297ADD620EF64B800A47E5F /* SearchHistoryItemTableViewCell.swift in Sources */,
+				0297ADC920EF5C0200A47E5F /* SearchHistoryModuleCoordinator.swift in Sources */,
+				0297ADD020EF605D00A47E5F /* AppCoordinator.swift in Sources */,
 				02DB5BA020EEA17500DBEB5A /* JSONStubs.swift in Sources */,
 				02DB5B8720EE950B00DBEB5A /* ViewModelType.swift in Sources */,
 				02DB5B9E20EEA0F500DBEB5A /* RepoInfo.swift in Sources */,
@@ -381,7 +482,9 @@
 				0297ADC020EF559000A47E5F /* CoreDataModel.xcdatamodeld in Sources */,
 				02DB5B8520EE94E600DBEB5A /* ControllerType.swift in Sources */,
 				02DB5BB520EF41AA00DBEB5A /* UIViewController+Extensions.swift in Sources */,
+				0297ADC220EF5AEF00A47E5F /* SearchHistoryController.swift in Sources */,
 				02DB5B9820EE9F9600DBEB5A /* RepoFetchService.swift in Sources */,
+				0297ADC620EF5B5000A47E5F /* SearchHistoryControllerViewModel.swift in Sources */,
 				02DB5BAD20EEAE2300DBEB5A /* ReuseableCellType.swift in Sources */,
 				02DB5BB120EEB24D00DBEB5A /* UITableView+Extensions.swift in Sources */,
 				0244B70A20EE910A0001CA88 /* RepoSearchController.swift in Sources */,
@@ -391,6 +494,7 @@
 				02DB5BA620EEA45700DBEB5A /* SearchReposAPIAction.swift in Sources */,
 				0297ADBC20EF557500A47E5F /* CoreDataStack.swift in Sources */,
 				02DB5B8C20EE95FB00DBEB5A /* RepoSearchControllerViewModel.swift in Sources */,
+				0297ADDA20EF64EA00A47E5F /* SearchHistoryItemTableViewCellViewModel.swift in Sources */,
 				02DB5B8920EE953500DBEB5A /* CoordinatorType.swift in Sources */,
 				02DB5BB320EF307900DBEB5A /* Errors.swift in Sources */,
 				02DB5B9B20EEA03A00DBEB5A /* SearchResponse.swift in Sources */,

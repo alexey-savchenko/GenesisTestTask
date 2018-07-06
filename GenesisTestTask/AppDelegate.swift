@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 									 didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		
 		window = UIWindow(frame: UIScreen.main.bounds)
-		appCoordinator = RepoSearchModuleCoordinator(window!)
+		appCoordinator = AppCoodinator(window!)
 		appCoordinator.start()
 		
 		return true
