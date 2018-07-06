@@ -77,8 +77,7 @@ class RepoSearchControllerViewModel: ViewModelType {
 			.disposed(by: disposeBag)
 		
 		startSearchSubject
-			.withLatestFrom(searchQuerySubject).debug()
-			.distinctUntilChanged()
+			.withLatestFrom(searchQuerySubject)
 			.flatMapLatest{ [unowned self] (query) in
 				self.repoFetchService.searchRepos(using: query).materialize()
 			}.subscribe(onNext: { [unowned self] event in
