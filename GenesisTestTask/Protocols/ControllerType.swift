@@ -10,6 +10,7 @@ import UIKit
 
 protocol ControllerType: class {
   associatedtype ViewModel: ViewModelType
+  /// View model instance. Implicitly unwrapped because cannot be present after init.
   var viewModel: ViewModel! { get set }
   /// Configurates controller with specified CPViewModel subclass
   ///
@@ -18,7 +19,7 @@ protocol ControllerType: class {
   /// Factory function for view controller instatiation
   ///
   /// - Parameter viewModel: View model object
-  /// - Returns: View controller of concrete type
+  /// - Returns: View controller of concrete type upcasted to UIViewController
   static func create(with viewModel: ViewModel) throws -> UIViewController
 }
 
