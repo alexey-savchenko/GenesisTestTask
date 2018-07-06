@@ -26,6 +26,7 @@
 		0297ADE020EF6D8400A47E5F /* SearchHistoryItemController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0297ADDF20EF6D8400A47E5F /* SearchHistoryItemController.storyboard */; };
 		0297ADE320EF73B600A47E5F /* RepoWebPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297ADE220EF73B600A47E5F /* RepoWebPresenter.swift */; };
 		0297ADE520EF8D1700A47E5F /* CustomWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297ADE420EF8D1700A47E5F /* CustomWebView.swift */; };
+		0297ADE720EF987A00A47E5F /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0297ADE620EF987A00A47E5F /* String+Extensions.swift */; };
 		02DB5B8520EE94E600DBEB5A /* ControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB5B8420EE94E600DBEB5A /* ControllerType.swift */; };
 		02DB5B8720EE950B00DBEB5A /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB5B8620EE950B00DBEB5A /* ViewModelType.swift */; };
 		02DB5B8920EE953500DBEB5A /* CoordinatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DB5B8820EE953500DBEB5A /* CoordinatorType.swift */; };
@@ -70,6 +71,7 @@
 		0297ADDF20EF6D8400A47E5F /* SearchHistoryItemController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchHistoryItemController.storyboard; sourceTree = "<group>"; };
 		0297ADE220EF73B600A47E5F /* RepoWebPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoWebPresenter.swift; sourceTree = "<group>"; };
 		0297ADE420EF8D1700A47E5F /* CustomWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWebView.swift; sourceTree = "<group>"; };
+		0297ADE620EF987A00A47E5F /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		02DB5B8420EE94E600DBEB5A /* ControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerType.swift; sourceTree = "<group>"; };
 		02DB5B8620EE950B00DBEB5A /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		02DB5B8820EE953500DBEB5A /* CoordinatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorType.swift; sourceTree = "<group>"; };
@@ -192,8 +194,8 @@
 		0297ADCD20EF5C9900A47E5F /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				0297ADCB20EF5C7700A47E5F /* SearchHistoryController.storyboard */,
 				0297ADD820EF64BB00A47E5F /* Cells */,
+				0297ADCB20EF5C7700A47E5F /* SearchHistoryController.storyboard */,
 				0297ADDF20EF6D8400A47E5F /* SearchHistoryItemController.storyboard */,
 			);
 			path = UI;
@@ -239,6 +241,7 @@
 			children = (
 				02DB5BB020EEB24D00DBEB5A /* UITableView+Extensions.swift */,
 				02DB5BB420EF41AA00DBEB5A /* UIViewController+Extensions.swift */,
+				0297ADE620EF987A00A47E5F /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				02DB5BAF20EEAE9A00DBEB5A /* RepoListTableViewCellViewModel.swift in Sources */,
 				0297ADDC20EF6CF800A47E5F /* SearchHistoryItemController.swift in Sources */,
 				0297ADD620EF64B800A47E5F /* SearchHistoryItemTableViewCell.swift in Sources */,
+				0297ADE720EF987A00A47E5F /* String+Extensions.swift in Sources */,
 				0297ADC920EF5C0200A47E5F /* SearchHistoryModuleCoordinator.swift in Sources */,
 				0297ADD020EF605D00A47E5F /* AppCoordinator.swift in Sources */,
 				02DB5BA020EEA17500DBEB5A /* JSONStubs.swift in Sources */,

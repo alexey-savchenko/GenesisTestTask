@@ -38,7 +38,7 @@ class SearchHistoryItemTableViewCellViewModel: ViewModelType {
 		let searchDateString = formatter.string(from: historyItem.searchDate!)
 		
 		output = Output(historyItem: historyItem,
-										searchQueryString: historyItem.searchQuery ?? "",
+										searchQueryString: historyItem.searchQuery?.trunc(length: 30) ?? "",
 										searchDateString: searchDateString)
 	}
 	

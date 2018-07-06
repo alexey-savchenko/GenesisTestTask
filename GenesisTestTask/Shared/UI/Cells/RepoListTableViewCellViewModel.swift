@@ -31,7 +31,7 @@ class RepoListTableViewCellViewModel: ViewModelType {
 	init(_ repoInfo: RepoInfo) {
 		input = Input()
 		
-		let repoNameString = repoInfo.fullName
+		let repoNameString = repoInfo.fullName.trunc(length: 30)
 		let starCountString = "Stars: \(repoInfo.stargazersCount)"
 		let ownerUserpicURL = URL(string: repoInfo.owner.avatarURL)!
 		let repoLanguageString = "Language: \(repoInfo.language ?? "-")"
