@@ -66,7 +66,7 @@ class RepoSearchControllerViewModel: ViewModelType {
 	}
 	
 	private func bindViewModelToService() {
-		repoFetchService.isQuerying.debug()
+		repoFetchService.isQuerying
 			.subscribe(isQueryingSubject)
 			.disposed(by: disposeBag)
 		

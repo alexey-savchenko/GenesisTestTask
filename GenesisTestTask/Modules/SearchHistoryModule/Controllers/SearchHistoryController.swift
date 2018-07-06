@@ -44,7 +44,7 @@ class SearchHistoryController: UIViewController, ControllerType {
 				self.historyItemsTableView.indexPathsForSelectedRows?.forEach({ (idx) in
 					self.historyItemsTableView.deselectRow(at: idx, animated: true)
 				})
-			}).debug()
+			})
 			.subscribe(viewModel.input.historyItemSelected)
 			.disposed(by: disposeBag)
 		

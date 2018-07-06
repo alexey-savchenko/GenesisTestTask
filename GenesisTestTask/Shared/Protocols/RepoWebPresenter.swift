@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import WebKit
 
 protocol RepoWebPresenter {
 	func presentRepoWebPage(_ repoURL: URL)
@@ -14,6 +15,8 @@ protocol RepoWebPresenter {
 
 extension RepoWebPresenter where Self: UIViewController {
 	func presentRepoWebPage(_ repoURL: URL) {
-		
+		let webView = CustomWebView(frame: view.frame)
+		view.addSubview(webView)
+		webView.load(repoURL)
 	}
 }

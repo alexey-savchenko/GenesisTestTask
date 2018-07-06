@@ -48,7 +48,7 @@ class SearchHistoryControllerViewModel: ViewModelType {
 			historyItems.map(SearchHistoryItemTableViewCellViewModel.init)
 		}))
 		
-		historyItemSelectedSubject.debug()
+		historyItemSelectedSubject
 			.subscribe(onNext: { [unowned self] (historyItem) in
 				self.navigationDelegate?.showSearchResultsFor(historyItem.output.historyItem)
 			})

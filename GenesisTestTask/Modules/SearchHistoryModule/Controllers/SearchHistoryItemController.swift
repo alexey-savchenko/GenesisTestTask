@@ -31,6 +31,9 @@ class SearchHistoryItemController: UIViewController, ControllerType, RepoWebPres
 		configure(with: viewModel)
 	}
 	
+	deinit {
+		print("\(self) dealloc")
+	}
 	// MARK: - Functions
 	
 	func configure(with viewModel: SearchHistoryItemControllerViewModel) {
@@ -43,6 +46,18 @@ class SearchHistoryItemController: UIViewController, ControllerType, RepoWebPres
 						cell.fill(with: element)
 					}
 		}.disposed(by: disposeBag)
+		
+		searchResultsTableView.rx
+			.modelSelected(RepoListTableViewCellViewModel.self)
+			.do(onNext: { [unowned self] _ in
+				self.searchResultsTableView.indexPathsForSelectedRows?.forEach({ (idx) in
+					self.searchResultsTableView.deselectRow(at: idx, animated: true)
+				})
+			})
+			.subscribe(onNext: { [unowned self] (repo) in
+				self.presentRepoWebPage(repo.output.repoURL)
+			})
+			.disposed(by: disposeBag)
 	}
 	
 	private func configureTableView() {

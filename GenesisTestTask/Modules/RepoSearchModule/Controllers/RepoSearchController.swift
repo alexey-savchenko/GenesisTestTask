@@ -105,8 +105,8 @@ class RepoSearchController: UIViewController, ControllerType, RepoWebPresenter {
 					self.repoListTableView.deselectRow(at: idx, animated: true)
 				})
 			})
-			.subscribe(onNext: { (repo) in
-				print(repo.output.repoURL)
+			.subscribe(onNext: { [unowned self] (repo) in
+				self.presentRepoWebPage(repo.output.repoURL)
 			})
 			.disposed(by: disposeBag)
 		

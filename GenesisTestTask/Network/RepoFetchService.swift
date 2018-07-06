@@ -26,6 +26,7 @@ protocol RepoFetchServiceProtocol {
 class RepoFetchService: NSObject, RepoFetchServiceProtocol {
 	
 	// MARK: - Init and deinit
+	
 	init(_ historySaveService: SearchHistoryInfoStoreProtocol = CoreDataStack.shared) {
 		self.historySaveService = historySaveService
 		super.init()
@@ -52,6 +53,7 @@ class RepoFetchService: NSObject, RepoFetchServiceProtocol {
 	}
 
 	// MARK: - Functions
+	
 	func cancelQuery() {
 		operationQueue.cancelAllOperations()
 		pendingRequests.forEach { $0.cancel() }
